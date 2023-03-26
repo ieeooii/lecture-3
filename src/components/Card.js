@@ -9,7 +9,10 @@ function Card(props) {
 			entries.forEach((entry) => {
 				if(entry.isIntersecting) {
 					console.log('is Intersecting', entry.target.dataset.src);
-					entry.target.src = entry.target.dataset.src;
+					const target = entry.target;
+					const previousSibling = target.previousSibling;
+					target.src = target.dataset.src;
+					previousSibling.srcset = previousSibling.dataset.srcset
 					observer.unobserve(entry.target);
 				}
 			})
@@ -20,7 +23,10 @@ function Card(props) {
 
 	return (
 		<div className="Card text-center">
-			<img ref={imgRef} data-src={props.image} />
+			<picture>
+				<source data-srcset={props.webp} type='image/png' />
+				<img ref={imgRef} data-src={props.image} />
+			</picture>
 			<div className="p-5 font-semibold text-gray-700 text-xl md:text-lg lg:text-xl keep-all">
 				{props.children}
 			</div>
