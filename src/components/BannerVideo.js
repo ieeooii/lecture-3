@@ -3,16 +3,16 @@ import video from '../assets/banner-video.mp4'
 import FontFaceObserver from 'fontfaceobserver'
 
 function BannerVideo() {
-	const [isFontLoaded, setIsFontLoaded] = useState(false);
+	const [isFontLoaded, setIsFontLoaded] = useState(true);
 
-	let font = new FontFaceObserver('BMYEONSUNG');
-
-	useEffect(() => {
-		font.load().then(() => {
-			console.log('BMYEONSUNG has loaded');
-			setIsFontLoaded(true)
-		})
-	}, [])
+	// let font = new FontFaceObserver('BMYEONSUNG');
+	//
+	// useEffect(() => {
+	// 	font.load().then(() => {
+	// 		console.log('BMYEONSUNG has loaded');
+	// 		setIsFontLoaded(true)
+	// 	})
+	// }, [])
 
 	return (
 		<div className="BannerVideo w-full h-screen overflow-hidden relative bg-texture">
